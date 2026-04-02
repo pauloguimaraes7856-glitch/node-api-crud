@@ -32,6 +32,16 @@ app.get("/students", async (req, res) => {
 });
 
 
+app.post("/students", async (req, res) => {
+    const {name, age} = req.body;
+    try {
+        const result = await pool.query("INSERT INTO students (name, age) VALUES ($1, $2) RETURNING *", [name, age]);
+        res.json(result.rows[0]);
+    } catch (err) {
+        res.status(500).send(err.message);
+    }
+});
+
 
 app.listen(process.env.PORT, () => {
     console.log(`Server is running on port ${process.env.PORT}`);
