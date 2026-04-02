@@ -20,7 +20,6 @@ app.get("/", (req, res) => {
     res.send(`This app is running in ${env} mode`);
 })
 
-
 app.get("/students", async (req, res) => {
     try {
         const result = await pool.query("SELECT * FROM students");
@@ -71,4 +70,3 @@ app.delete("/students/:id", async (req, res) => {
 app.listen(process.env.PORT, () => {
     console.log(`Server is running on port ${process.env.PORT}`);
 });
-
