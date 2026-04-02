@@ -1,0 +1,16 @@
+#ci.yml vérifie ton code automatiquement
+#pipeline -> tu envoies ton code → GitHub lance automatiquement des étapes → vérifie si tout marche
+name: CI
+on:
+  push:
+    branches: [main, dev]
+  pull_request:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: peter-evans/create-or-update-comment@v5 
+      - uses: peter-evans/create-or-update-comment@v5
+        with:
+          node-version: 20 
+      - run: npm install  

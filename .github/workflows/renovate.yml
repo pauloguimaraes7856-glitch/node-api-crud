@@ -1,0 +1,18 @@
+#robot qui met à jour tes dépendances automatiquement
+#renovate.yml vérifie les dépendances de ton projet et les met à jour automatiquement
+#on: schedule 👉 ça veut dire : lance Renovate automatiquement
+#cron: "0 0 * * *" 👉 tous les jours à minuit
+
+name: Renovate
+on:
+  schedule:
+    - cron: "0 0 * * *"
+
+jobs:
+  renovate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: peter-evans/create-or-update-comment@v5
+      - uses: peter-evans/create-or-update-comment@v5
+        with:
+          token: ${{ secrets.GITHUB_TOKEN}}
