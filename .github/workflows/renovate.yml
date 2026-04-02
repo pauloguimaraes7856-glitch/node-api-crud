@@ -12,7 +12,7 @@ jobs:
   renovate:
     runs-on: ubuntu-latest
     steps:
-      - uses: peter-evans/create-or-update-comment@v5
-      - uses: peter-evans/create-or-update-comment@v5
+      - uses: actions/checkout@v4
+      - uses: renovatebot/github-action@v40
         with:
           token: ${{ secrets.GITHUB_TOKEN}}
